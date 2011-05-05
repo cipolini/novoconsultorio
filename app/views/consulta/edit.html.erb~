@@ -1,0 +1,3 @@
+<h1>Alteracao de consulta</h1>
+
+<%= render 'form', :locals => { :textoBotao => "Alterar" } %>

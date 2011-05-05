@@ -1,0 +1,70 @@
+<%= form_for(@consulta) do |f| %>
+  <% if @consulta.errors.any? %>
+    <div id="error_explanation">
+      <h2>O formulario está com erro (s):</h2>
+      <ul>
+        <% @consulta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Nome do paciente<br />
+    <%= f.select :paciente_id, options_from_collection_for_select(Paciente.all, 'id', 'nome', :selected => @consulta.paciente_id)%>
+  </div>
+  <div class="field">
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_consulta %><br />
+    <%= f.text_field :tipo_consulta %>
+  </div>
+  <div class="field">
+    <%= f.label :exames %><br />
+    <%= f.text_field :exames %>
+  </div>
+  <div class="field">
+    <%= f.label :exame_fisico %><br />
+    <%= f.text_field :exame_fisico %>
+  </div>
+  <div class="field">
+    <%= f.label :cirurgia %><br />
+    <%= f.text_field :cirurgia %>
+  </div>
+  <div class="field">
+    <%= f.label :diagnostico %><br />
+    <%= f.text_field :diagnostico %>
+  </div>
+  <div class="field">
+    <%= f.label :convenio %><br />
+    <%= f.select :convenio, options_from_collection_for_select(Convenio.find(:all) , 'id', 'descricao')%> </label>
+  </div>
+  <div class="field">
+    <%= f.label :tipo_plano %><br />
+    <%= f.select :tipo_plano, options_from_collection_for_select(Plano.find(:all) , 'id', 'descricao')%> </label>
+  </div>
+
+  <div class="field">
+    <%= f.label :data_consulta %><br />
+    <%= f.datetime_select :data_consulta %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.select :status, options_for_select( { "Atendido" => "Atendido"}) %>
+  </div>
+
+  <div class="field">
+    <label>Medico <br />
+    <%= f.select :medico_id, options_from_collection_for_select(Medico.find(:all), 'systemUser_id', 'nome', :selected => @consulta.medico_id) %> </label>
+  </div>
+  <div class="field">
+    <%= f.label :consulta_id %><br />
+    <%= f.text_field :consulta_id %>
+  </div>
+  <div class="actions">
+    <button> <%= textoBotao %> </button>
+  </div>
+<% end %>

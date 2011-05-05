@@ -1,0 +1,23 @@
+<h1>Listing estado_civils</h1>
+
+<table>
+  <tr>
+    <th>Descricao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @estado_civils.each do |estado_civil| %>
+  <tr>
+    <td><%= estado_civil.descricao %></td>
+    <td><%= link_to 'Show', estado_civil %></td>
+    <td><%= link_to 'Edit', edit_estado_civil_path(estado_civil) %></td>
+    <td><%= link_to 'Destroy', estado_civil, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Estado civil', new_estado_civil_path %>

@@ -1,0 +1,31 @@
+<h1>Listing system_users</h1>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @system_users.each do |system_user| %>
+  <tr>
+    <td><%= system_user.login %></td>
+    <td><%= system_user.password %></td>
+    <td><%= system_user.email %></td>
+    <td><%= system_user.status %></td>
+    <td><%= system_user.tipo %></td>
+    <td><%= link_to 'Show', system_user %></td>
+    <td><%= link_to 'Edit', edit_system_user_path(system_user) %></td>
+    <td><%= link_to 'Destroy', system_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New System user', new_system_user_path %>

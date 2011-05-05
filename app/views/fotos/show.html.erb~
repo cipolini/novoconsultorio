@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @foto.nome %>
+</p>
+
+<p>
+  <b>Id consulta:</b>
+  <%= @foto.id_consulta %>
+</p>

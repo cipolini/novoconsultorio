@@ -1,0 +1,9 @@
+
+<% form_tag search_buscas_path, :method => "get" do %>
+
+  <%= label_tag :busca, "Busca" %>
+  <%=h text_field_tag :busca %>
+  <%= submit_tag "Pesquisar"%>
+
+<% end %>
+

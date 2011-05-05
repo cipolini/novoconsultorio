@@ -1,0 +1,4 @@
+<h1>Inclusão de Foto</h1>
+
+<%= render 'form' %>
+

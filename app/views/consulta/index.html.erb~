@@ -1,0 +1,38 @@
+<h1>Consulta</h1>
+
+<table>
+  <tr>
+    <th>Nome paciente</th>
+    <th>Convenio</th>
+    <th>Status</th>
+    <th>Data consulta</th>
+    <th>Id medico</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consulta.each do |consultum| %>
+  <tr>
+    <% @paciente = Paciente.all %>
+    <% @paciente.each do |paciente| %>
+      <td>
+          <% if paciente.id == consultum.id_paciente %>
+            <%= paciente.Nome %>
+          <% end %>
+      </td>
+    <% end %>
+
+    <td><%= consultum.Convenio %></td>
+    <td><%= consultum.Status %></td>
+    <td><%= consultum.Data_consulta %></td>
+    <td><%= consultum.id_consulta %></td>
+    <td><%= consultum.id_medico %></td>
+    <td><%= link_to 'Show', consultum %></td>
+    <td><%= link_to 'Edit', edit_consultum_path(consultum) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Consulta', new_consultum_path %>

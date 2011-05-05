@@ -1,0 +1,25 @@
+<h1>Listing planos</h1>
+
+<table>
+  <tr>
+    <th>Descricao</th>
+    <th>Convenio</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @planos.each do |plano| %>
+  <tr>
+    <td><%= plano.descricao %></td>
+    <td><%= plano.convenio_id %></td>
+    <td><%= link_to 'Show', plano %></td>
+    <td><%= link_to 'Edit', edit_plano_path(plano) %></td>
+    <td><%= link_to 'Destroy', plano, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plano', new_plano_path %>

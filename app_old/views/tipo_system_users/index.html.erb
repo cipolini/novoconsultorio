@@ -1,0 +1,27 @@
+<h1>Listing tipo_system_users</h1>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Descricao</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @tipo_system_users.each do |tipo_system_user| %>
+  <tr>
+    <td><%= tipo_system_user.tipo %></td>
+    <td><%= tipo_system_user.descricao %></td>
+    <td><%= tipo_system_user.status %></td>
+    <td><%= link_to 'Show', tipo_system_user %></td>
+    <td><%= link_to 'Edit', edit_tipo_system_user_path(tipo_system_user) %></td>
+    <td><%= link_to 'Destroy', tipo_system_user, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tipo system user', new_tipo_system_user_path %>

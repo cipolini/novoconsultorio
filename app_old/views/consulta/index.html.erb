@@ -1,0 +1,49 @@
+<h1>Listing consulta</h1>
+
+<table>
+  <tr>
+    <th>Paciente</th>
+    <th>Descricao</th>
+    <th>Tipo consulta</th>
+    <th>Exames</th>
+    <th>Exame fisico</th>
+    <th>Cirurgia</th>
+    <th>Diagnostico</th>
+    <th>Convenio</th>
+    <th>Tipo plano</th>
+    <th>Data consulta</th>
+    <th>Status</th>
+    <th>Consulta</th>
+    <th>Medico</th>
+    <th>Systemuser</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consulta.each do |consultum| %>
+  <tr>
+    <td><%= consultum.paciente_id %></td>
+    <td><%= consultum.descricao %></td>
+    <td><%= consultum.tipo_consulta %></td>
+    <td><%= consultum.exames %></td>
+    <td><%= consultum.exame_fisico %></td>
+    <td><%= consultum.cirurgia %></td>
+    <td><%= consultum.diagnostico %></td>
+    <td><%= consultum.convenio %></td>
+    <td><%= consultum.tipo_plano %></td>
+    <td><%= consultum.data_consulta %></td>
+    <td><%= consultum.status %></td>
+    <td><%= consultum.consulta_id %></td>
+    <td><%= consultum.medico_id %></td>
+    <td><%= consultum.systemuser_id %></td>
+    <td><%= link_to 'Show', consultum %></td>
+    <td><%= link_to 'Edit', edit_consultum_path(consultum) %></td>
+    <td><%= link_to 'Destroy', consultum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Consultum', new_consultum_path %>

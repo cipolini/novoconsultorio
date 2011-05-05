@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Longin:</b>
+  <%= @system.longin %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @system.password %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @system.status %>
+</p>
+
+<p>
+  <b>System:</b>
+  <%= @system.system_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_system_path(@system) %> |
+<%= link_to 'Back', systems_path %>

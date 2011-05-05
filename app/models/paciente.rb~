@@ -1,0 +1,7 @@
+# encoding: UTF-8
+class Paciente < ActiveRecord::Base
+  validates_presence_of :Nome, :CPF, :RG, :CEP, :Endereco, :Bairro, :Cidade, :UF
+  validates_length_of :CPF, :maximum => 11, :minimum => 11
+  validates_length_of :UF, :maximum => 2, :minimum => 2
+  validates_numericality_of :CPF
+end

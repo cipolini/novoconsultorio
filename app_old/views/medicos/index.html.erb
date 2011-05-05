@@ -1,0 +1,29 @@
+<h1>Listing medicos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Systemuser</th>
+    <th>Crm</th>
+    <th>Login</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @medicos.each do |medico| %>
+  <tr>
+    <td><%= medico.nome %></td>
+    <td><%= medico.systemUser_id %></td>
+    <td><%= medico.CRM %></td>
+    <td><%= medico.login %></td>
+    <td><%= link_to 'Show', medico %></td>
+    <td><%= link_to 'Edit', edit_medico_path(medico) %></td>
+    <td><%= link_to 'Destroy', medico, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Medico', new_medico_path %>

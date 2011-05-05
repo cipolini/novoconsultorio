@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<% form_tag search_buscas_path do || %>
+
+  <%= label_tag :busca, 'Busca' %>
+  <%= text_field_tag :busca %>
+  <%= submit_tag "Pesquisar"%>
+
+<% end %>

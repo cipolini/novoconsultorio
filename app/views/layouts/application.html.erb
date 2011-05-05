@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consultorio</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag 'lightbox' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  <div >
+    <table style="width:100%; " class= "navbar" >
+      <tr>
+        <td>
+          <div  style="text-align: left" class= "navbar" >
+          <%= link_to 'Cadastro de Paciente', new_paciente_path %>
+          <%= link_to 'Nova Consulta', new_consultum_path %>
+          <%  if session[:logged] %>
+            <%= link_to "Logout", session_path(1), :method => :delete %>
+          <% end %>
+        </div>
+      </td>
+      <td>
+          <div style="text-align: right" class= "navbar" >
+          <%= form_tag search_buscas_path, :method => "get" do %>
+
+            <%= label_tag :busca, "Busca" %>
+            <%=h text_field_tag :busca %>
+            <%= submit_tag "Pesquisar"%>
+
+          <% end %>
+        </div>
+      <td>
+    </tr>
+  </table>
+</div>
+<%= yield %>
+
+</body>
+</html>

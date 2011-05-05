@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nome: MyString
+  systemUser_id: 1
+  CRM: MyString
+  login: MyString
+
+two:
+  nome: MyString
+  systemUser_id: 1
+  CRM: MyString
+  login: MyString

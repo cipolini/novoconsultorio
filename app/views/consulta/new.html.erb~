@@ -1,0 +1,4 @@
+<h1>Nova Consulta</h1>
+
+<%= render 'form', :locals => { :textoBotao => "Criar Consulta" } %>
+

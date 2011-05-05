@@ -1,0 +1,33 @@
+<% if flash[:message] %>
+  <div > <%= h flash[:message] %>  </div>
+<% end %>
+
+<div align="center" id="telaLogin" class="cssLogin">
+  <div id="mainLoginId" class="mainLogin">
+    <%= form_tag  sessions_path, :method => :post %>
+
+      <div class="loginWindow">
+        <div class="loginArea0">
+          <div class="loginArea">
+            <div style="padding: 30px;">  
+              <div class="infoLineUser">Usuário</div>
+                <div class="infoLineField">
+                  <input type="text" name="login" value="" id="login">
+               </div>
+             </div>
+           </div>
+           <div class="loginArea">
+             <div style="padding: 30px;">
+               <div class="infoLineUser">Senha</div>
+                 <div class="infoLineField">
+                   <input type="password" name="password" value="" id="password">
+                 </div>
+               </div>
+             </div>
+           <button>Login</button>
+           </div>
+         </div>
+      </div>
+    </form>
+  </div>        
+</div>

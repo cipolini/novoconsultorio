@@ -1,0 +1,89 @@
+<% @consulta.each do |consulta_pagina| %>
+<% @imprimir = FALSE %>
+
+<p>
+  <b>Nome:</b>
+  <%= Paciente.find(consulta_pagina.paciente_id).nome %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%= consulta_pagina.descricao %>
+</p>
+
+<p>
+  <b>Tipo consulta:</b>
+  <%= consulta_pagina.tipo_consulta %>
+</p>
+
+<p>
+  <b>Exames:</b>
+  <%= consulta_pagina.exames %>
+</p>
+
+<p>
+  <b>Exame fisico:</b>
+  <%= consulta_pagina.exame_fisico %>
+</p>
+
+<p>
+  <b>Cirurgia:</b>
+  <%= consulta_pagina.cirurgia %>
+</p>
+
+<p>
+  <b>Diagnostico:</b>
+  <%= consulta_pagina.diagnostico %>
+</p>
+
+<p>
+  <b>Convenio:</b>
+  <%= Convenio.find(:first, :conditions => [' id = ? ', consulta_pagina.convenio ] ).descricao %>
+</p>
+
+<p>
+  <b>Tipo plano:</b>
+  <% if !consulta_pagina.Tipo_plano.nil? %>
+    <%= Plano.find(:first, :conditions => [' id = ? ', consulta_pagina.tipo_plano ] ).descricao %>
+  <% end %>
+</p>
+
+<p>
+  <b>Médico:</b>
+  <%= Medico.find(:first, :conditions => [' systemUser_id = ? ', consulta_pagina.medico_id] ).nome %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= consulta_pagina.status %>
+</p>
+
+<p>
+  <b>Data consulta:</b>
+  <%= consulta_pagina.data_consulta %>
+</p>
+
+<p>
+
+  <% @fotos.each do |foto| %>
+    <% if foto.id_consulta == consulta_pagina.id %>
+
+      <% if !@imprimir %>
+        <b>Fotos</b> <br>
+        <% @imprimir = TRUE %>
+      <% end %>
+      <%= lightbox_image_tag(foto.avatar.url(:thumb), foto.avatar.url, :title => foto.descricao ) %>
+    <% end %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Alterar', edit_consultum_path(@consulta) %> |
+<%= link_to 'Criar Retorno', retorno_consultum_path(@consulta) %> |
+<%= link_to 'Incluir Foto', edit_foto_path(@consulta) %> |
+<%= link_to 'Voltar', search_buscas_path(nil) %> 
+<br>
+<br>
+
+<% end %>
+<%= will_paginate @consulta %>

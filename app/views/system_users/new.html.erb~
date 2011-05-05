@@ -1,0 +1,32 @@
+<h1>Cadastro de System user</h1>
+<%= form_for @user do |f| %>
+
+  <div class="field">
+    <%= f.label :login %>
+    <%= f.text_field :login%>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.text_field :password%>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <label> Tipo System User
+      <%= f.select :tipo, options_for_select( { "Administrator" => "1", "Médico" => "2", "System User" => "3"})%>
+    </label>
+  </div>
+
+  <div class="field">
+    <label> Status
+      <%= f.select :status, options_for_select( { "Ativo" => "Ativo"})%>
+    </label>
+  </div>
+
+  <button>Salvar</button>
+
+<% end %>

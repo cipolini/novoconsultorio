@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @medico.nome %>
+</p>
+
+<p>
+  <b>Systemuser:</b>
+  <%= @medico.systemUser_id %>
+</p>
+
+<p>
+  <b>Crm:</b>
+  <%= @medico.CRM %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%= @medico.login %>
+</p>
+
+
+<%= link_to 'Edit', edit_medico_path(@medico) %> |
+<%= link_to 'Back', medicos_path %>

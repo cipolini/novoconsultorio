@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  paciente_id: 1
+  descricao: MyString
+  tipo_consulta: MyString
+  exames: MyString
+  exame_fisico: MyString
+  cirurgia: MyString
+  diagnostico: MyString
+  convenio: MyString
+  tipo_plano: MyString
+  data_consulta: 2011-05-03 22:28:45
+  status: MyString
+  consulta_id: 1
+  medico_id: 1
+  systemuser_id: 1
+
+two:
+  paciente_id: 1
+  descricao: MyString
+  tipo_consulta: MyString
+  exames: MyString
+  exame_fisico: MyString
+  cirurgia: MyString
+  diagnostico: MyString
+  convenio: MyString
+  tipo_plano: MyString
+  data_consulta: 2011-05-03 22:28:45
+  status: MyString
+  consulta_id: 1
+  medico_id: 1
+  systemuser_id: 1

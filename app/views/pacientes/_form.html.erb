@@ -1,0 +1,69 @@
+<%= form_for(@paciente) do |f| %>
+  <% if @paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paciente.errors.count, "error") %> prohibited this paciente from being saved:</h2>
+
+      <ul>
+      <% @paciente.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :cpf %><br />
+    <%= f.text_field :cpf %>
+  </div>
+  <div class="field">
+    <%= f.label :rg %><br />
+    <%= f.text_field :rg %>
+  </div>
+  <div class="field">
+    <%= f.label :cep %><br />
+    <%= f.text_field :cep %>
+  </div>
+  <div class="field">
+    <%= f.label :endereco %><br />
+    <%= f.text_field :endereco %>
+  </div>
+  <div class="field">
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </div>
+  <div class="field">
+    <%= f.label :bairro %><br />
+    <%= f.text_field :bairro %>
+  </div>
+  <div class="field">
+    <%= f.label :cidade %><br />
+    <%= f.text_field :cidade %>
+  </div>
+  <div class="field">
+    <%= f.label :uf %><br />
+    <%= f.text_field :uf %>
+  </div>
+  <div class="field">
+    <%= f.label :complemento %><br />
+    <%= f.text_field :complemento %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br />
+    <%= f.select :sexo, options_for_select( { "Masculino" => "Masculino", "Feminino" => "Feminino" }) %>
+  </div>
+  <div class="field">
+    <%= f.label :estado_Civil %><br />
+    <%= f.select :estado_Civil, options_from_collection_for_select(EstadoCivil.all, 'descricao', 'descricao', :selected => @paciente.estado_Civil)%>
+  </div>
+  <div class="field">
+    <%= f.label :data_nascimento %><br />
+    <%= f.date_select :data_nascimento, :start_year => 1910 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Ok" %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Users:</h1>
+
+
+<ul>
+    <% @users.each do |user| %>
+      <li>
+        <h2><%= user.login %></h2>
+      </li>
+    <% end %>
+</ul>
+
+<%  if session[:logged] %>
+  <%= link_to "logOut", session_path(1), :method => :delete %>
+<% end %>

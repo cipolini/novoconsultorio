@@ -1,0 +1,78 @@
+
+<!--<% form_tag search_buscas_path, :method => "get" do %>
+
+  <%= label_tag :busca, "Busca" %>
+  <%=h text_field_tag :busca %>
+  <%= submit_tag "Pesquisar"%>
+
+<% end %>-->
+
+<% if !@resultado.nil? %>
+<% @resultado.each do |resultado|%>
+<table >
+<% @layoutPacienteImpresso = TRUE %>
+    <% if @layoutPacienteImpresso %>
+      <% @layoutPacienteImpresso = FALSE %>
+      <% @layoutConsultaImpresso = TRUE %>
+      <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>RG</th>
+        <th>Sexo</th>
+        <th>Estado civil</th>
+        <th>Data nascimento</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <br>
+      </tr>
+    <% end %>
+
+    <tr>
+      <td><%= resultado.Nome %></td>
+      <td><%= resultado.CPF %></td>
+      <td><%= resultado.RG %></td>
+      <td><%= resultado.Sexo %></td>
+      <td><%= resultado.Estado_Civil %></td>
+      <td><%= resultado.data_nascimento %></td>
+      <td><%= link_to 'Show', resultado %></td>
+      <td><%= link_to 'Alterar', edit_paciente_path(resultado) %></td>
+    </tr>
+    <% @consultas = Consultum.find(:all)%>
+      <% @consultas.each do |consulta| %>
+        <% if consulta.id_consulta.nil? %> 
+          <% if consulta.id_paciente == resultado.id %>
+            <% if @layoutConsultaImpresso %>
+	      <% @layoutConsultaImpresso = FALSE %>
+	      <tr>
+	        <th></th>
+                <th></th>
+                <th>Convenio</th>
+                <th>Status</th>
+                <th>Médico</th>
+                <th>Data consulta</th>
+                <th></th>
+                <th></th>
+              </tr>
+	      <% end %>
+
+	      <tr>
+		<td></td>
+		<td></td>
+		<td><%= consulta.Convenio %></td>
+		<td><%= consulta.Status %></td>
+		<td><%= Medico.find(:first, :conditions => ['systemUser_id = ?', consulta.id_medico] ).nome %></td>
+		<td><%= consulta.Data_consulta %></td>
+		<td><%= link_to 'Show', consulta %></td>
+		<td><%= link_to 'Alterar', edit_consultum_path(consulta) %></td>
+	      </tr>
+
+        <% end %>
+      <% end %>
+    <% end %>
+
+</table>
+<br>
+<br>
+<% end %>
+<% end %>
