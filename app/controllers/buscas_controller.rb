@@ -11,7 +11,7 @@ class BuscasController < ApplicationController
   def search
     if !params[:busca].nil? 
       if params[:busca] != ''
-        @resultado = Paciente.find(:all, :conditions => ['Nome like ? or id = ?', "%#{params[:busca]}%", params[:busca] ] ) 
+        @resultado = Paciente.find(:all, :conditions => ['Nome like ?', "%#{params[:busca]}%" ] ) 
       end
     end
   end
